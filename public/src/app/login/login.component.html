@@ -1,3 +1,83 @@
-<p>
-  login works!
-</p>
+<div class="login">
+	<form (submit)="loginValid()" #loginForm="ngForm">
+		<table>
+			<tr>
+				<td>Email: </td>
+				<td><input type="email" name="logemail" [(ngModel)]='loggedUser.email' required></td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input type="password" name="logpassword" [(ngModel)]="loggedUser.password" required></td>
+			</tr>
+			<tr>
+				<td class="errors" colspan="2" *ngFor="let error of errors" >{{error.login.message}}</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Log In" id="buttonlog" ></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div class="registration">
+	<form (submit)="registerValid()" #regForm="ngForm">
+		<table>
+			<tr>
+				<td>Name: </td>
+				<td><input type="text"
+					 name="name"
+					 required
+					 minlength="2"
+					 maxlength="25"
+					 [(ngModel)]="newUser.name"
+					 #first_name="ngModel"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="errors" *ngIf="!name.valid && !name.pristine">You need at least 2 characters</td>
+			</tr>
+			<tr>
+				<td>Email: </td>
+				<td><input type="email"
+					 name="email"
+					 required
+					 minlength="2"
+					 maxlength="25"
+					 [(ngModel)]="newUser.email"
+					 #email="ngModel"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="errors" *ngIf="!email.valid && !email.pristine">You need a valid email</td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input type="password"
+					 name="password"
+					 required
+					 minlength="7"
+					 maxlength="25"
+					 pattern="^([a-zA-Z0-9@*#]{8,15})$"
+					 [(ngModel)]="newUser.password"
+					 #password="ngModel"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="errors" *ngIf="!password.valid && !password.pristine">You need at least 7 characters</td>
+			</tr>
+			<tr>
+				<td>Confirm Password: </td>
+				<td><input type="password"
+					 name="confirmPassword"
+					 required
+					 minlength="7"
+					 maxlength="25"
+					 pattern="^([a-zA-Z0-9@*#]{8,15})$"
+					 [(ngModel)]="newUser.confirmPassword"
+					 #confirmPassword="ngModel"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="errors" *ngIf="newUser.password != newUser.confirmPassword">Your passwords dont match cuh</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Register" id="buttonreg" [disabled]="!regForm.valid"></td>
+			</tr>
+		</table>
+	</form>
+</div>
