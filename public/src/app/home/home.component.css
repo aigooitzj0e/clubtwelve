@@ -1,0 +1,20 @@
+#daily-deals {
+    width: 100%;
+    height: 400px;
+    background: -webkit-linear-gradient(#494747 , black); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#494747 , black); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#494747 , black); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#494747 , black); /* Standard syntax */
+}
+
+.promo {
+    height: 400px;
+    display: block;
+    margin: auto;
+}
+
+.promo-team-logo {
+    height: 375px;
+    position: relative;
+
+}
