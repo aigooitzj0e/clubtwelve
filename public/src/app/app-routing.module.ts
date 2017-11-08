@@ -8,29 +8,26 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'home', pathMatch: 'full',
         component: HomeComponent
     },
     {
-        path: 'home',
-        component: HomeComponent
-
+        path: '', redirectTo: 'home', pathMatch: 'full',
     },
     {
-        path: 'jerseys',
+        path: 'jerseys', pathMatch: 'full',
         component: JerseyComponent
     },
     {
-        path: 'cart',
+        path: 'cart', pathMatch: 'full',
         component: CartComponent
     },
     {
-        path: 'login',
+        path: 'login', pathMatch: 'full',
         component: LoginComponent
     },
     {
-        path: '**',
-        redirectTo: 'home'
+        path: '**', redirectTo: 'home'
     }
 ];
 
