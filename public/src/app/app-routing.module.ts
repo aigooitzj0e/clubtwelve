@@ -8,22 +8,22 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {
-        path: 'home', pathmatch: 'full',
+        path: 'home', pathMatch: 'full',
         component: HomeComponent
     },
     {
-        path: '', redirectTo: 'home'
+        path: '', redirectTo: 'home', pathMatch: 'full',
     },
     {
-        path: 'jerseys', pathmatch: 'full',
+        path: 'jerseys', pathMatch: 'full',
         component: JerseyComponent
     },
     {
-        path: 'cart', pathmatch: 'full',
+        path: 'cart', pathMatch: 'full',
         component: CartComponent
     },
     {
-        path: 'login', pathmatch: 'full',
+        path: 'login', pathMatch: 'full',
         component: LoginComponent
     },
     {

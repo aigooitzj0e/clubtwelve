@@ -19,7 +19,7 @@
 	</form>
 </div>
 <div class="registration">
-	<form (submit)="registerValid()" #regForm="ngForm">
+	<form (submit)="registerValid()">
 		<table>
 			<tr>
 				<td>Name: </td>
@@ -29,10 +29,10 @@
 					 minlength="2"
 					 maxlength="25"
 					 [(ngModel)]="newUser.name"
-					 #first_name="ngModel"></td>
+					 #name="ngModel"></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="errors" *ngIf="!name.valid && !name.pristine">You need at least 2 characters</td>
+				<td colspan="2" class="errors" *ngIf="name.invalid && name.dirty">You need at least 2 characters</td>
 			</tr>
 			<tr>
 				<td>Email: </td>
@@ -73,10 +73,10 @@
 					 #confirmPassword="ngModel"></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="errors" *ngIf="newUser.password != newUser.confirmPassword">Your passwords dont match cuh</td>
+				<td colspan="2" class="errors" *ngIf="newUser.password != newUser.confirmPassword">Your passwords do not match</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Register" id="buttonreg" [disabled]="!regForm.valid"></td>
+				<td colspan="2"><input type="submit" value="Register" id="buttonreg" ></td>
 			</tr>
 		</table>
 	</form>

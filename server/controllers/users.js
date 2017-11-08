@@ -30,7 +30,7 @@ module.exports = {
 	},
 	login: (req,res)=>{
 		console.log("users.login");
-		user.findOne({email: req.body.email}).exec((err, foundUser)=>{
+		User.findOne({email: req.body.email}).exec((err, foundUser)=>{
 			if (err){
 				console.log("error in login");
 				res.json(err);
