@@ -13,8 +13,24 @@
     margin: auto;
 }
 
-.promo-team-logo {
-    height: 375px;
-    position: relative;
+#discount {
+    margin-top: 50px;
+    width: 1060px;
+    display: block;
+    margin: auto;
+}
 
+.title {
+    text-align: center;
+    margin: 40px 0px;
+}
+
+.card {
+    text-align: center;
+}
+
+#footer {
+    height: 100px;
+    background-color: #353A40;
+    margin-top: 50px;
 }
