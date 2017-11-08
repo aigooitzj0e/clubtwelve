@@ -5,3 +5,9 @@
 .errors{
 	color: red;
 }
+.container{
+	border-radius: 10px;
+	width: 400px;
+	display: block;
+	margin: auto;
+}
