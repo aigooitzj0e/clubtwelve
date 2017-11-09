@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { JerseyComponent } from './jersey/jersey.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HomeComponent,
     JerseyComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

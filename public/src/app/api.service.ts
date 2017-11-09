@@ -16,4 +16,8 @@ export class ApiService {
 		return this._http.post('/api/login', user).map(res=>res.json()).toPromise();
 	}
 
+	logout(){
+		console.log('logout service');
+		return this._http.post('/api/logout').map(res=>res.json()).toPromise();
+	}
 }

@@ -6,6 +6,7 @@ module.exports = (app)=>{
 	// Login and Registration
 	app.post('/api/register', user.register);
 	app.post('/api/login', user.login);
+	app.get('api/logout', user.logout);
 
 	app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"))

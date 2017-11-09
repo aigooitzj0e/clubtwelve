@@ -60,4 +60,10 @@ module.exports = {
 			}
 		})
 	},
+	
+	logout: (res,req)=>{
+		console.log("users.logout");
+		req.session.destroy();
+		res.json(true);
+	}
 }
