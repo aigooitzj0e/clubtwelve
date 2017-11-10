@@ -7,7 +7,10 @@ module.exports = (app)=>{
 	app.post('/api/register', user.register);
 	app.post('/api/login', user.login);
 	app.get('/api/logout', user.logout);
-
+	// Admin
+	app.get('/api/admin' user.admin);
+	app.get('/api/allusers', user.allusers);
+	
 	app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"))
     });

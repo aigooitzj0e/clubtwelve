@@ -22,9 +22,12 @@ export class ApiService {
 		return this._http.post('/api/login', user).map(res=>res.json()).toPromise();
 	}
   // Admin
-	admin(user){
-	console.log("admin users", user);
-	return this._http.post('/api/login', user).map(res=>res.json()).toPromise();
-}
-
+	admin(){
+	console.log("admin users");
+	return this._http.get('/api/login', user).map(res=>res.json()).toPromise();
+	}
+	allUsers(){
+		console.log("admin allusers");
+		return this._http.get('/api/allusers').map(res=>res.json()).toPromise();
+	}
 }

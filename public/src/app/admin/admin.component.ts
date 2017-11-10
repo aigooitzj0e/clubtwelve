@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
   constructor(private _apiservice: ApiService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+		this.admin();
   }
 
   admin(){
@@ -32,6 +33,18 @@ export class AdminComponent implements OnInit {
   	})
   	.catch((err)=> console.log(err))
   }
+
+	allUsers(){
+		console.log("grabbing all them users");
+		this._apiservice.allUsers()
+		.then((data)=>{
+			console.log(data)
+			this.userList = data;
+		})
+		.catch((err)=>{
+			console.log(err, "allUsers catch error")
+		})
+	}
 
 
 

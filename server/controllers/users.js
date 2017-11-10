@@ -71,5 +71,35 @@ module.exports = {
 		console.log("users.logout");
 		req.session.destroy();
 		res.json(true);
-	}
+	},
+
+	admin: (req,res)=>{
+		console.log("admin user")
+		if (!req.session.userId){
+			res.json(false)
+		} else {
+			User.findOne({admin:true}).exec((err,foundUser)=>{
+				err ? (
+					res.json(false)
+				) :(
+					console.log("current user"),
+					res.json(foundUser)
+				)
+			}
+		}
+	},
+
+	allusers: (req,res)=>{
+		console.log("all users");
+		User.find().exec((err, userList)=>{
+			err ? (
+				console.log('error in all users', err),
+				res.json(err)
+			) : (
+				console.log("got all the users"),
+				res.json(userList)
+			)
+		})
+	},
+	
 }
