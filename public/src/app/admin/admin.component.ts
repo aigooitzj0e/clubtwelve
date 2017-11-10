@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 	userList: User[] = [];
 	adminUser: User = new User;
 	newJersey: Jersey = new Jersey();
+	jerseyList: Jersey[] = [];
 	errors: Array<string> = [];
 
   constructor(private _apiservice: ApiService, private _router: Router, private _route: ActivatedRoute) { }
@@ -46,6 +47,25 @@ export class AdminComponent implements OnInit {
 		})
 	}
 
+	newJersey(){
+		console.log('create Jersey')
+		this._apiservice.newJersey(this.newJersey)
+		.then((data)=>{
+			console.log(data);
+			this._router.navigate(['admin']);
+		})
+	}
 
+	allJerseys(){
+		console.log('all jerseys')
+		this._apiservice.allJerseys()
+		.then((data)=>{
+			console.log(data);
+			this.jerseyList = data;
+		})
+		.catch((err)=>{
+			console.log(err, "all Jerseys catch error")
+		})
+	}
 
 }

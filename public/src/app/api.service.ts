@@ -30,4 +30,13 @@ export class ApiService {
 		console.log("admin allusers");
 		return this._http.get('/api/allusers').map(res=>res.json()).toPromise();
 	}
+	//Jerseys
+	newJersey(jersey){
+		console.log("create a jersey");
+		return this._http.post('/api/createjersey', jersey).map(res=>res.json()).toPromise();
+	}
+	allJerseys(){
+		console.log("all jerseys");
+		return this._http.get('/api/alljerseys').map(res=>res.json()).toPromise();
+	}
 }

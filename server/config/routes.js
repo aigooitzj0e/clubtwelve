@@ -10,7 +10,10 @@ module.exports = (app)=>{
 	// Admin
 	app.get('/api/admin' user.admin);
 	app.get('/api/allusers', user.allusers);
-	
+	//Jerseys
+	app.post('/api/createjersey', jersey.newJersey);
+	app.get('/api/alljerseys', jersey.allJerseys);
+
 	app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"))
     });
