@@ -8,6 +8,12 @@ export class ApiService {
 
   constructor(private _http: Http) { }
 
+  // AppComponent
+	logout(){
+		console.log('logout service');
+		return this._http.get('/api/logout').map(res=>res.json()).toPromise();
+	}
+  // Login
 	register(user){
 		return this._http.post('/api/register', user).map(res=>res.json()).toPromise();
 	}
@@ -15,9 +21,10 @@ export class ApiService {
 		console.log("in service's login method", user);
 		return this._http.post('/api/login', user).map(res=>res.json()).toPromise();
 	}
+  // Admin
+	admin(user){
+	console.log("admin users", user);
+	return this._http.post('/api/login', user).map(res=>res.json()).toPromise();
+}
 
-	logout(){
-		console.log('logout service');
-		return this._http.post('/api/logout').map(res=>res.json()).toPromise();
-	}
 }

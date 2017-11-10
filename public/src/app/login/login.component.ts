@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
 	newUser: User = new User();
 	loggedUser: User = new User();
 	errors: Array<string> = [];
-
   constructor(private _apiservice: ApiService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -24,6 +23,8 @@ export class LoginComponent implements OnInit {
 				console.log(data.errors)
 			) : (
 				console.log("great success!", data),
+				sessionStorage.setItem('session', data._id),
+				console.log("sessionStorage", sessionStorage.getItem('session')),
 				this._router.navigate(["home"])
 			)
 		})
@@ -40,6 +41,8 @@ export class LoginComponent implements OnInit {
 				this.errors.push(data.errors)
 			) : (
 				console.log('successfully logged in', data),
+				sessionStorage.setItem('session', data._id),
+				console.log("sessionStorage", sessionStorage.getItem('session')),
 				this._router.navigate(["home"])
 			)
 		})
