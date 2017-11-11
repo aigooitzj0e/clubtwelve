@@ -12,8 +12,8 @@ import { Jersey } from './../jersey';
 export class AdminComponent implements OnInit {
 	userList: User[] = [];
 	adminUser: User = new User;
-	newJersey: Jersey = new Jersey();
-	jerseyList: Jersey[] = [];
+	createdJersey: Jersey = new Jersey();
+	jerseyList: Array<Jersey> = [];
 	errors: Array<string> = [];
 
   constructor(private _apiservice: ApiService, private _router: Router, private _route: ActivatedRoute) { }
@@ -49,7 +49,7 @@ export class AdminComponent implements OnInit {
 
 	newJersey(){
 		console.log('create Jersey')
-		this._apiservice.newJersey(this.newJersey)
+		this._apiservice.newJersey(this.createdJersey)
 		.then((data)=>{
 			console.log(data);
 			this._router.navigate(['admin']);
@@ -68,4 +68,9 @@ export class AdminComponent implements OnInit {
 		})
 	}
 
+	deleteJersey(idx){
+		this._apiservice.deleteJersey(this.jerseyList[idx])
+		.then(()=> this.jerseyList())
+		.catch((err)=> console.log(err))
+	}
 }

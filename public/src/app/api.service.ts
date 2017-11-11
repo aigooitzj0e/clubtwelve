@@ -24,7 +24,7 @@ export class ApiService {
   // Admin
 	admin(){
 	console.log("admin users");
-	return this._http.get('/api/login', user).map(res=>res.json()).toPromise();
+	return this._http.get('/api/login').map(res=>res.json()).toPromise();
 	}
 	allUsers(){
 		console.log("admin allusers");
@@ -38,5 +38,8 @@ export class ApiService {
 	allJerseys(){
 		console.log("all jerseys");
 		return this._http.get('/api/alljerseys').map(res=>res.json()).toPromise();
+	}
+	deleteJersey(jersey){
+		return this._http.post('/api/jersey/destroy', jersey).map(res=>res.json()).toPromise();
 	}
 }

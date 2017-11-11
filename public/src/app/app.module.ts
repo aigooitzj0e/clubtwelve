@@ -12,6 +12,7 @@ import { JerseyComponent } from './jersey/jersey.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AdminComponent } from './admin/admin.component';
+import { EditjerseyComponent } from './editjersey/editjersey.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminComponent } from './admin/admin.component';
     JerseyComponent,
     CartComponent,
     CheckoutComponent,
-    AdminComponent
+    AdminComponent,
+    EditjerseyComponent
   ],
   imports: [
     BrowserModule,

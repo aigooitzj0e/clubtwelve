@@ -14,7 +14,7 @@ module.exports = {
 				console.log('Successfully created a jersey'),
 				res.json(newSurvey)
 			)
-		}
+		})
 	},
 
 	allJerseys: (req, res)=>{
@@ -28,5 +28,19 @@ module.exports = {
 				res.json(jerseyList)
 			)
 		})
-	}
+	},
+
+	deleteJersey: (req,res)=>{
+		console.log('hit the delete jersey in controller');
+		Jersey.findByIdAndRemove(jersey._id, jersey).exec((err, deletedJersey)=>{
+			err ? (
+				console.log('something went wrong'),
+				res.json(err)
+			) : (
+				console.log('success'),
+				res.json(deletedJersey)
+			)
+		})
+	},
+	
 }

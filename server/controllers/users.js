@@ -78,14 +78,15 @@ module.exports = {
 		if (!req.session.userId){
 			res.json(false)
 		} else {
-			User.findOne({admin:true}).exec((err,foundUser)=>{
+			User.findOne({admin:true}).exec((err,foundAdmin)=>{
 				err ? (
-					res.json(false)
-				) :(
-					console.log("current user"),
-					res.json(foundUser)
+					console.log(err),
+					res.json(err)
+				) : (
+					console.log('admin', foundAdmin),
+					res.json(foundAdmin)
 				)
-			}
+			})
 		}
 	},
 
@@ -101,5 +102,5 @@ module.exports = {
 			)
 		})
 	},
-	
+
 }

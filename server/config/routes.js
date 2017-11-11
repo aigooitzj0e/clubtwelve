@@ -8,14 +8,15 @@ module.exports = (app)=>{
 	app.post('/api/login', user.login);
 	app.get('/api/logout', user.logout);
 	// Admin
-	app.get('/api/admin' user.admin);
+	app.get('/api/admin', user.admin);
 	app.get('/api/allusers', user.allusers);
 	//Jerseys
 	app.post('/api/createjersey', jersey.newJersey);
 	app.get('/api/alljerseys', jersey.allJerseys);
+	app.post('/api/jersey/destroy', jersey.deleteJersey);
+
 
 	app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"))
     });
-
 }
