@@ -39,7 +39,12 @@ export class ApiService {
 		console.log("all jerseys");
 		return this._http.get('/api/alljerseys').map(res=>res.json()).toPromise();
 	}
+	getJersey(j_id){
+		console.log('hit getJersey in service');
+		return this._http.post('/api/getJersey', {j_id: j_id}).map(res=>res.json()).toPromise();
+	}
 	deleteJersey(jersey){
 		return this._http.post('/api/jersey/destroy', jersey).map(res=>res.json()).toPromise();
 	}
+
 }

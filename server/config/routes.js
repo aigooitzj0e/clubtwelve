@@ -14,7 +14,7 @@ module.exports = (app)=>{
 	app.post('/api/createjersey', jersey.newJersey);
 	app.get('/api/alljerseys', jersey.allJerseys);
 	app.post('/api/jersey/destroy', jersey.deleteJersey);
-
+	app.post('/api/getJersey', jersey.getJersey);
 
 	app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./public/dist/index.html"))

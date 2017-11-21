@@ -30,6 +30,19 @@ module.exports = {
 		})
 	},
 
+	getJersey: (req,res)=> {
+		console.log('hit getJersey in controllers', req.body.j_id);
+		Jersey.find({_id: req.body.j_id}).exec((err, foundJersey)=>{
+			err ? (
+				console.log('error in getJersey', err),
+				res.json(err)
+			) : (
+				console.log('found jersey', foundJersey),
+				res.json(foundJersey)
+			)
+		})
+	},
+
 	deleteJersey: (req,res)=>{
 		console.log('hit the delete jersey in controller');
 		Jersey.findByIdAndRemove(jersey._id, jersey).exec((err, deletedJersey)=>{
@@ -42,5 +55,5 @@ module.exports = {
 			)
 		})
 	},
-	
+
 }
