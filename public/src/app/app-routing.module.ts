@@ -34,7 +34,7 @@ const routes: Routes = [
 		{
 				path: 'task/:id',
 				component: EditjerseyComponent
-		}
+		},
     {
         path: '**', redirectTo: 'home'
     }
