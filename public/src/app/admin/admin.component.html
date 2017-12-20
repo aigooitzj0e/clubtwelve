@@ -1,5 +1,5 @@
 <h2>Admin Dashboard</h2>
-<h1>{{ adminUser.name }}</h1>
+<h1>{{ adminUser | json }}</h1>
 <div class="" *ngFor="let users of userList">
-	<p>{{ users.name }}</p>
+	<p>{{ userList | json }}</p>
 </div>
